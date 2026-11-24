@@ -13,6 +13,8 @@ const PATHS = {
   spark: <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4" />,
   arrow: <><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></>,
   upright: <><path d="M7 17 17 7" /><path d="M8 7h9v9" /></>,
+  menu: <><path d="M4 7h16" /><path d="M4 12h16" /><path d="M4 17h16" /></>,
+  close: <><path d="M6 6l12 12" /><path d="M18 6 6 18" /></>,
 }
 
 function Icon({ name, size = 22 }) {
@@ -31,6 +33,7 @@ export default function App() {
   const [data, setData] = useState({ services: [], projects: [], steps: [], team: [], settings: {} })
   const [filter, setFilter] = useState('All')
   const [contactOpen, setContactOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     async function load() {
@@ -66,7 +69,7 @@ export default function App() {
           <img src="/arro-logo.png" alt="" />
           <span>ARRO STUDIO</span>
         </a>
-        <nav className="nav-links" aria-label="Main">
+        <nav id="main-menu" className={`nav-links${menuOpen ? ' open' : ''}`} aria-label="Main" onClick={() => setMenuOpen(false)}>
           <a href="#home" className="active">{t(lang, 'home')}</a>
           <a href="#services">{t(lang, 'services')}</a>
           <a href="#work">{t(lang, 'work')}</a>
@@ -79,6 +82,10 @@ export default function App() {
             <button className={lang === 'mm' ? 'on' : ''} onClick={() => setLang('mm')}>MM</button>
           </div>
           <button className="btn" onClick={() => setContactOpen(true)}>{t(lang, 'startProject')}</button>
+          <button className="burger" aria-label="Menu" aria-expanded={menuOpen} aria-controls="main-menu"
+            onClick={() => setMenuOpen((o) => !o)}>
+            <Icon name={menuOpen ? 'close' : 'menu'} />
+          </button>
         </div>
       </header>
 
