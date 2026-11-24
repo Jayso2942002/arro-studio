@@ -28,7 +28,7 @@ h1, h2, h3, .big, .num, .brand span { font-family: 'Space Grotesk', Inter, 'Noto
 button { font: inherit; cursor: pointer; }
 :focus-visible { outline: 2px solid var(--pink); outline-offset: 3px; }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+.container { max-width: 1200px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
 .center { text-align: center; }
 .narrow { max-width: 560px; margin-left: auto; margin-right: auto; }
 .muted { color: var(--muted); }
@@ -248,7 +248,7 @@ h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 700; line-height: 1.1; }
 
 /* phones */
 @media (max-width: 640px) {
-  .container { padding: 0 20px; }
+  .container { padding-left: 20px; padding-right: 20px; }
   .nav { padding-top: 16px; padding-bottom: 16px; gap: 12px; }
   .nav-actions { gap: 10px; }
   .nav-actions .btn { display: none; }
@@ -292,7 +292,7 @@ h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 700; line-height: 1.1; }
 
 /* very small phones */
 @media (max-width: 360px) {
-  .container { padding: 0 16px; }
+  .container { padding-left: 16px; padding-right: 16px; }
   .brand img { height: 28px; }
   .brand span { font-size: 16px; }
 }
